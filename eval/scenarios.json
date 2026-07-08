@@ -1,0 +1,83 @@
+[
+  {
+    "id": "penalty_trip_001",
+    "incident": "A defender trips an attacker inside the penalty area while challenging for the ball.",
+    "call": "Penalty kick",
+    "expected_laws": ["12", "14"],
+    "must_include_uncertainty": true,
+    "notes": "Should cite the direct-free-kick offence and penalty-kick restart basis."
+  },
+  {
+    "id": "direct_free_kick_trip_001",
+    "incident": "A defender carelessly trips an attacker outside the penalty area.",
+    "call": "Direct free kick",
+    "expected_laws": ["12"],
+    "must_include_uncertainty": false,
+    "notes": "Basic Law 12 direct-free-kick offence."
+  },
+  {
+    "id": "reckless_tackle_yellow_001",
+    "incident": "A midfielder makes a reckless sliding tackle and stops a promising attack near the halfway line.",
+    "call": "Yellow card and direct free kick",
+    "expected_laws": ["12"],
+    "must_include_uncertainty": true,
+    "notes": "Should distinguish careless/reckless/excessive force and SPA context."
+  },
+  {
+    "id": "excessive_force_red_001",
+    "incident": "A player lunges with excessive force into an opponent while challenging for the ball.",
+    "call": "Red card for serious foul play",
+    "expected_laws": ["12"],
+    "must_include_uncertainty": true,
+    "notes": "Should explain serious foul play/excessive force."
+  },
+  {
+    "id": "handball_penalty_001",
+    "incident": "A defender inside their penalty area handles the ball with an arm that appears to make the body unnaturally bigger.",
+    "call": "Penalty kick",
+    "expected_laws": ["12", "14"],
+    "must_include_uncertainty": true,
+    "notes": "Should cite handball and penalty-kick restart if the offence occurred inside the penalty area."
+  },
+  {
+    "id": "goalkeeper_backpass_001",
+    "incident": "A goalkeeper picks up the ball inside the penalty area after it was deliberately kicked to them by a teammate.",
+    "call": "Indirect free kick",
+    "expected_laws": ["12"],
+    "must_include_uncertainty": true,
+    "notes": "Should cite goalkeeper handling restrictions."
+  },
+  {
+    "id": "offside_interference_001",
+    "incident": "An attacker in an offside position challenges a defender for the ball after a teammate passes it forward.",
+    "call": "Indirect free kick for offside",
+    "expected_laws": ["11"],
+    "must_include_uncertainty": true,
+    "notes": "Should cite offside offence by interfering with an opponent."
+  },
+  {
+    "id": "offside_not_active_001",
+    "incident": "An attacker is standing in an offside position but does not touch the ball or interfere with an opponent.",
+    "call": "Play continues",
+    "expected_laws": ["11"],
+    "must_include_uncertainty": true,
+    "notes": "Should explain offside position alone is not an offence."
+  },
+  {
+    "id": "dogso_penalty_attempt_ball_001",
+    "incident": "A defender denies an obvious goal-scoring opportunity inside the penalty area while attempting to play the ball.",
+    "call": "Penalty kick and yellow card",
+    "expected_laws": ["12", "14"],
+    "must_include_uncertainty": true,
+    "notes": "Should explain DOGSO penalty-area reduction when attempting to play the ball."
+  },
+  {
+    "id": "insufficient_info_contact_001",
+    "incident": "An attacker falls in the penalty area, but the clip does not show whether any defender made contact.",
+    "call": "Penalty kick",
+    "expected_laws": ["12", "14"],
+    "must_include_uncertainty": true,
+    "notes": "Should emphasize missing facts and avoid overconfidence."
+  }
+]
+
