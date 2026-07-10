@@ -146,6 +146,7 @@ def explain_call(incident: str, call: str, limit: int = 8) -> dict:
     parsed = extract_json(raw)
     parsed["call_explained"] = parsed.get("call_explained") or call
     apply_source_metadata(parsed, hits, query, citation_key="citations")
+    ensure_supporting_citations(parsed, hits, incident, call)
     sanitize_explanation(parsed, incident, call)
     parsed["_retrieved_chunk_ids"] = [hit.chunk["id"] for hit in hits]
     return parsed
@@ -175,9 +176,87 @@ def apply_source_metadata(
         law["source"] = matching.get("canonical_page", law.get("source"))
 
 
+def cited_law_numbers(answer: dict, citation_key: str = "citations") -> set[str]:
+    return {
+        law_number
+        for citation in answer.get(citation_key, [])
+        if (law_number := law_number_from_label(citation.get("law", "")))
+    }
+
+
+def best_chunk_for_law(hits: list[SearchHit], law_number: str) -> dict | None:
+    match = max(
+        (hit for hit in hits if hit.chunk.get("law_number") == law_number),
+        key=lambda hit: hit.score,
+        default=None,
+    )
+    return match.chunk if match else None
+
+
+def append_citation(answer: dict, chunk: dict, relevance: str) -> None:
+    answer.setdefault("citations", []).append(
+        {
+            "law": f"Law {chunk.get('law_number')}: {chunk.get('law_title')}",
+            "page": chunk.get("page"),
+            "section_hint": chunk.get("section_hint"),
+            "source": chunk.get("canonical_page"),
+            "relevance": relevance,
+        }
+    )
+
+
+def ensure_supporting_citations(answer: dict, hits: list[SearchHit], incident: str, call: str) -> None:
+    lowered = f"{incident} {call}".lower()
+    cited = cited_law_numbers(answer)
+
+    needs_law12 = (
+        any(term in lowered for term in ["penalty", "direct free kick", "indirect free kick"])
+        and any(
+            term in lowered
+            for term in [
+                "contact",
+                "fall",
+                "falls",
+                "foul",
+                "trip",
+                "trips",
+                "goalkeeper",
+                "deliberately kicked",
+                "backpass",
+            ]
+        )
+    )
+    if needs_law12 and "12" not in cited:
+        law12 = best_chunk_for_law(hits, "12")
+        if law12:
+            append_citation(
+                answer,
+                law12,
+                "Provides the Law 12 offence basis that must exist before the stated restart or disciplinary explanation applies.",
+            )
+            cited.add("12")
+
+    needs_law14 = "penalty" in call.lower() and "14" not in cited
+    if needs_law14:
+        law14 = best_chunk_for_law(hits, "14")
+        if law14:
+            append_citation(
+                answer,
+                law14,
+                "Provides the Law 14 restart basis for a direct free kick offence committed inside the penalty area.",
+            )
+
+
 def sanitize_explanation(answer: dict, incident: str, call: str) -> None:
     lowered_incident = incident.lower()
     lowered_call = call.lower()
+    if "penalty" not in lowered_call:
+        answer["citations"] = [
+            citation
+            for citation in answer.get("citations", [])
+            if law_number_from_label(citation.get("law", "")) != "14"
+        ]
+
     sanitized = []
 
     for alternate in answer.get("alternate_explanations", []):

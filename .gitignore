@@ -4,6 +4,8 @@ __pycache__/
 .DS_Store
 data/raw/*.pdf
 data/index/*.json
+eval/runs/*.json
 !data/.gitkeep
 !data/raw/.gitkeep
 !data/index/.gitkeep
+!eval/runs/.gitkeep

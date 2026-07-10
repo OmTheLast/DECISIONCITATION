@@ -28,6 +28,8 @@ def main() -> None:
 
     eval_parser = subparsers.add_parser("eval", help="Run the seed evaluation set")
     eval_parser.add_argument("--limit", type=int, default=None, help="Only run the first N scenarios")
+    eval_parser.add_argument("--save", action="store_true", help="Write the eval report under eval/runs/")
+    eval_parser.add_argument("--progress", action="store_true", help="Print per-scenario progress to stderr")
 
     args = parser.parse_args()
 
@@ -45,7 +47,7 @@ def main() -> None:
     elif args.command == "eval":
         from .evaluate import run_eval
 
-        print(json.dumps(run_eval(limit=args.limit), indent=2))
+        print(json.dumps(run_eval(limit=args.limit, save=args.save, progress=args.progress), indent=2))
 
 
 if __name__ == "__main__":

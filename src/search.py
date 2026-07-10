@@ -61,6 +61,13 @@ def metadata_boost(query: str, chunk: dict) -> float:
             boost += 2.0
         if law in {"13", "15", "16", "17"}:
             boost -= 4.0
+    if "penalty" in lowered and any(term in lowered for term in ["contact", "fall", "falls", "foul", "offence"]):
+        if law == "12":
+            boost += 8.0
+        if law == "14":
+            boost += 3.0
+    if chunk.get("page", 0) >= 200 and law in {"11", "12", "14"}:
+        boost -= 3.0
     if "offside" in lowered and law == "11":
         boost += 5.0
     return boost

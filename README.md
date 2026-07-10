@@ -46,6 +46,15 @@ Run the seed evaluation set:
 OLLAMA_MODEL=qwen3:latest python -m src.cli eval --limit 3
 ```
 
+Save a model-specific eval report locally:
+
+```bash
+OLLAMA_MODEL=qwen3.6:27b python -m src.cli eval --save
+OLLAMA_MODEL=qwen3:latest python -m src.cli eval --save
+```
+
+Eval reports are written under `eval/runs/` and ignored by git by default.
+
 ## Source
 
 Default source: IFAB Laws of the Game 2026/27, single-page English PDF.
