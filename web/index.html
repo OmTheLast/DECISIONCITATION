@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Decision Citation</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="scanline" aria-hidden="true"></div>
+    <header class="topbar">
+      <a class="brand" href="./" aria-label="Decision Citation home">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span>
+          <strong>Decision Citation</strong>
+          <small>IFAB call explainer</small>
+        </span>
+      </a>
+      <nav aria-label="Workspace shortcuts">
+        <a href="#explain">Explain</a>
+        <a href="#evidence">Evidence</a>
+        <a href="#method">Method</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="workspace" id="explain">
+        <div class="panel input-panel reveal">
+          <div class="panel-head">
+            <p class="eyebrow">Call input</p>
+            <h1>Explain the law basis behind a football decision.</h1>
+            <p>
+              Enter the call that was made and the incident description. The system retrieves IFAB law
+              excerpts, then asks the local model to explain the citation path.
+            </p>
+            <p class="preview-note" id="preview-note">
+              GitHub Pages preview mode uses sample data. Run locally for live Ollama explanations.
+            </p>
+          </div>
+
+          <form id="explain-form">
+            <label>
+              <span>Call made</span>
+              <input
+                id="call"
+                name="call"
+                autocomplete="off"
+                value="Penalty kick"
+                placeholder="Penalty kick, yellow card, indirect free kick..."
+                required
+              />
+            </label>
+
+            <label>
+              <span>Incident</span>
+              <textarea id="incident" name="incident" rows="7" required>A defender trips an attacker inside the penalty area while challenging for the ball.</textarea>
+            </label>
+
+            <div class="form-row">
+              <label class="select-label">
+                <span>Model</span>
+                <select id="model" name="model">
+                  <option value="qwen3:latest">qwen3:latest · fast</option>
+                  <option value="qwen3.6:27b">qwen3.6:27b · stronger</option>
+                </select>
+              </label>
+              <button type="submit" id="submit-btn">
+                <span class="button-icon" aria-hidden="true"></span>
+                Explain call
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <section class="panel result-panel reveal" aria-live="polite">
+          <div class="result-state" id="empty-state">
+            <div class="field-graphic" aria-hidden="true">
+              <span></span><span></span><span></span>
+            </div>
+            <p class="eyebrow">Awaiting incident</p>
+            <h2>Output will appear as a structured referee-law brief.</h2>
+            <p>Use this to show why a call may have been made, not to replace the referee.</p>
+          </div>
+
+          <div class="result-state hidden" id="loading-state">
+            <div class="loader" aria-hidden="true"></div>
+            <p class="eyebrow">Retrieving law evidence</p>
+            <h2>Checking the lawbook and preparing citations.</h2>
+          </div>
+
+          <div class="result-content hidden" id="result-content">
+            <div class="result-title">
+              <p class="eyebrow">Call explained</p>
+              <h2 id="result-call"></h2>
+              <span id="confidence" class="confidence"></span>
+            </div>
+            <p id="why"></p>
+            <div class="stack" id="citations" aria-label="Citations"></div>
+          </div>
+
+          <div class="result-state error hidden" id="error-state">
+            <p class="eyebrow">Request failed</p>
+            <h2 id="error-message"></h2>
+          </div>
+        </section>
+      </section>
+
+      <section class="evidence-grid" id="evidence">
+        <article class="info-card reveal">
+          <p class="eyebrow">Uncertainties</p>
+          <div id="uncertainties" class="list-output muted-output">
+            Run an explanation to see missing facts and interpretive limits.
+          </div>
+        </article>
+        <article class="info-card reveal">
+          <p class="eyebrow">Alternate paths</p>
+          <div id="alternates" class="list-output muted-output">
+            Alternate outcomes appear when changed facts affect the law path.
+          </div>
+        </article>
+      </section>
+
+      <section class="method" id="method">
+        <div class="method-copy reveal">
+          <p class="eyebrow">Method</p>
+          <h2>Evidence first. Model second.</h2>
+          <p>
+            The interface sends text to the local Python service. The service searches extracted IFAB
+            law chunks, passes only retrieved evidence to Ollama, then normalizes citations before
+            returning the brief.
+          </p>
+        </div>
+        <ol class="timeline reveal" aria-label="Explanation pipeline">
+          <li><span>01</span> Incident and call</li>
+          <li><span>02</span> Local law retrieval</li>
+          <li><span>03</span> Model explanation</li>
+          <li><span>04</span> Citation cleanup</li>
+        </ol>
+      </section>
+    </main>
+
+    <script src="./app.js" type="module"></script>
+  </body>
+</html>

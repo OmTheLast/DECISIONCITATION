@@ -31,6 +31,10 @@ def main() -> None:
     eval_parser.add_argument("--save", action="store_true", help="Write the eval report under eval/runs/")
     eval_parser.add_argument("--progress", action="store_true", help="Print per-scenario progress to stderr")
 
+    serve_parser = subparsers.add_parser("serve", help="Run the local web UI")
+    serve_parser.add_argument("--host", default="127.0.0.1")
+    serve_parser.add_argument("--port", type=int, default=8765)
+
     args = parser.parse_args()
 
     if args.command == "download":
@@ -48,6 +52,10 @@ def main() -> None:
         from .evaluate import run_eval
 
         print(json.dumps(run_eval(limit=args.limit, save=args.save, progress=args.progress), indent=2))
+    elif args.command == "serve":
+        from .web_server import run
+
+        run(host=args.host, port=args.port)
 
 
 if __name__ == "__main__":

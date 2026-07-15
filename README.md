@@ -28,6 +28,14 @@ OLLAMA_MODEL=qwen3:latest python -m src.cli ask "An attacker in an offside posit
 
 ## Commands
 
+GitHub Pages preview:
+
+```text
+https://omthelast.github.io/DECISIONCITATION/
+```
+
+The Pages version is a static preview and uses sample output. Run the local server for live Ollama explanations.
+
 Explain why a stated call may have been made:
 
 ```bash
@@ -39,6 +47,14 @@ Ask for a direct decision from the incident text:
 ```bash
 python -m src.cli ask "A defender trips an attacker inside the penalty area while challenging for the ball."
 ```
+
+Run the local web UI:
+
+```bash
+python -m src.cli serve
+```
+
+Then open `http://127.0.0.1:8765`.
 
 Run the seed evaluation set:
 

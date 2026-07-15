@@ -112,7 +112,7 @@ JSON schema:
 """.strip()
 
 
-def answer_incident(incident: str, limit: int = 8) -> dict:
+def answer_incident(incident: str, limit: int = 8, model: str | None = None) -> dict:
     hits = search(incident, limit=limit)
     if not hits:
         return {
@@ -123,14 +123,14 @@ def answer_incident(incident: str, limit: int = 8) -> dict:
             "uncertainty": ["No relevant law chunks were retrieved."],
             "confidence": "low",
         }
-    raw = generate(build_prompt(incident, hits))
+    raw = generate(build_prompt(incident, hits), model=model)
     parsed = extract_json(raw)
     apply_source_metadata(parsed, hits, incident)
     parsed["_retrieved_chunk_ids"] = [hit.chunk["id"] for hit in hits]
     return parsed
 
 
-def explain_call(incident: str, call: str, limit: int = 8) -> dict:
+def explain_call(incident: str, call: str, limit: int = 8, model: str | None = None) -> dict:
     query = f"{call}. {incident}"
     hits = search(query, limit=limit)
     if not hits:
@@ -142,7 +142,7 @@ def explain_call(incident: str, call: str, limit: int = 8) -> dict:
             "alternate_explanations": [],
             "confidence": "low",
         }
-    raw = generate(build_explain_prompt(incident, call, hits))
+    raw = generate(build_explain_prompt(incident, call, hits), model=model)
     parsed = extract_json(raw)
     parsed["call_explained"] = parsed.get("call_explained") or call
     apply_source_metadata(parsed, hits, query, citation_key="citations")
@@ -287,9 +287,9 @@ def sanitize_explanation(answer: dict, incident: str, call: str) -> None:
     answer["alternate_explanations"] = sanitized
 
 
-def answer_as_json(incident: str) -> str:
-    return json.dumps(answer_incident(incident), indent=2)
+def answer_as_json(incident: str, model: str | None = None) -> str:
+    return json.dumps(answer_incident(incident, model=model), indent=2)
 
 
-def explain_as_json(incident: str, call: str) -> str:
-    return json.dumps(explain_call(incident, call), indent=2)
+def explain_as_json(incident: str, call: str, model: str | None = None) -> str:
+    return json.dumps(explain_call(incident, call, model=model), indent=2)

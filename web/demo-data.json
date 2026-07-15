@@ -1,0 +1,36 @@
+{
+  "call_explained": "Penalty kick",
+  "why_this_call_may_have_been_made": "The defender's action of tripping the attacker inside the penalty area is explained as a direct-free-kick offence under Law 12. Because that offence occurred inside the penalty area, Law 14 supplies the penalty-kick restart basis.",
+  "citations": [
+    {
+      "law": "Law 12: Fouls and Misconduct",
+      "page": 115,
+      "section_hint": "Law 12: Fouls and Misconduct > 1. Direct free kick",
+      "source": "https://www.theifab.com/documents/",
+      "relevance": "Tripping or attempting to trip an opponent is cited as a direct-free-kick offence when committed carelessly, recklessly, or with excessive force."
+    },
+    {
+      "law": "Law 14: The Penalty Kick",
+      "page": 135,
+      "section_hint": "Law 14: The Penalty Kick > 1. Procedure",
+      "source": "https://www.theifab.com/documents/",
+      "relevance": "A penalty kick is awarded when a player commits a direct-free-kick offence inside their own penalty area."
+    }
+  ],
+  "uncertainties": [
+    "The clip or description must still establish that contact occurred and that the offence was inside the penalty area.",
+    "Careless, reckless, and excessive-force interpretations affect possible discipline."
+  ],
+  "alternate_explanations": [
+    {
+      "if": "The contact happened outside the penalty area",
+      "then": "The restart path changes from penalty kick to direct free kick."
+    },
+    {
+      "if": "The challenge was reckless or used excessive force",
+      "then": "The explanation may add a yellow or red card citation under Law 12."
+    }
+  ],
+  "confidence": "demo"
+}
+
