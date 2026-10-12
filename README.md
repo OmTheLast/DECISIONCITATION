@@ -71,6 +71,17 @@ OLLAMA_MODEL=qwen3:latest python -m src.cli eval --save
 
 Eval reports are written under `eval/runs/` and ignored by git by default.
 
+## Recorded Evaluation
+
+Saved runs from 2026-07-08 passed all 10 seed scenarios for both `qwen3:latest`
+and `qwen3.6:27b`. Rescoring the saved answers on 2026-10-12 confirmed these
+results. This checks expected-law coverage and required uncertainty presence,
+not football decision accuracy or expert-validated reasoning. Extra laws do not
+fail the test; the smaller model included them in two scenarios.
+
+See [the evaluation documentation](eval/README.md) for the test cases, full model
+outputs, scoring limits and commands to run the evaluation locally.
+
 ## Source
 
 Default source: IFAB Laws of the Game 2026/27, single-page English PDF.

@@ -1,0 +1,591 @@
+{
+  "model": "qwen3:latest",
+  "created_at": "2026-07-08T14:36:44.719870+00:00",
+  "total": 10,
+  "passed": 10,
+  "failed": 0,
+  "results": [
+    {
+      "id": "penalty_trip_001",
+      "passed": true,
+      "expected_laws": [
+        "12",
+        "14"
+      ],
+      "actual_laws": [
+        "12",
+        "14"
+      ],
+      "missing_laws": [],
+      "unexpected_laws": [],
+      "uncertainty_ok": true,
+      "confidence": "high",
+      "answer": {
+        "call_explained": "Penalty kick",
+        "why_this_call_may_have_been_made": "The defender's action of tripping the attacker inside the penalty area constitutes a direct free kick offence, which, if committed inside the penalty area, results in a penalty kick.",
+        "citations": [
+          {
+            "law": "Law 12: Fouls and Misconduct",
+            "page": 115,
+            "section_hint": "Law 12: Fouls and Misconduct > 1. Direct free kick",
+            "source": "https://www.theifab.com/documents/",
+            "relevance": "Tripping is listed as a direct free kick offence, and if the contact occurs inside the penalty area, a penalty kick is awarded."
+          },
+          {
+            "law": "Law 14: The Penalty Kick",
+            "page": 135,
+            "section_hint": "Law 14: The Penalty Kick > 1. Procedure",
+            "source": "https://www.theifab.com/documents/",
+            "relevance": "A penalty kick is awarded if a direct free kick offence occurs inside the penalty area."
+          }
+        ],
+        "uncertainties": [
+          "Whether the tripping was careless, reckless, or using excessive force"
+        ],
+        "alternate_explanations": [
+          {
+            "if": "The tripping was deemed careless and not reckless or using excessive force",
+            "then": "A direct free kick would be awarded, and no card would be given."
+          }
+        ],
+        "confidence": "high",
+        "_retrieved_chunk_ids": [
+          "p115-01",
+          "p127-01",
+          "p135-01",
+          "p150-01",
+          "p121-01",
+          "p182-01",
+          "p118-01",
+          "p132-01"
+        ]
+      }
+    },
+    {
+      "id": "direct_free_kick_trip_001",
+      "passed": true,
+      "expected_laws": [
+        "12"
+      ],
+      "actual_laws": [
+        "12",
+        "14"
+      ],
+      "missing_laws": [],
+      "unexpected_laws": [
+        "14"
+      ],
+      "uncertainty_ok": true,
+      "confidence": "medium",
+      "answer": {
+        "call_explained": "Direct free kick",
+        "why_this_call_may_have_been_made": "A defender carelessly tripping an attacker outside the penalty area is penalised by a direct free kick as per Law 12, which specifies that careless actions during a challenge result in a direct free kick.",
+        "citations": [
+          {
+            "law": "Law 12: Fouls and Misconduct",
+            "page": 115,
+            "section_hint": "Law 12: Fouls and Misconduct > 1. Direct free kick",
+            "source": "https://www.theifab.com/documents/",
+            "relevance": "Law 12 explicitly states that a direct free kick is awarded for a careless foul, including tripping, when the ball is in play."
+          },
+          {
+            "law": "Law 14: The Penalty Kick",
+            "page": 135,
+            "section_hint": "Law 14: The Penalty Kick > 1. Procedure",
+            "source": "https://www.theifab.com/documents/",
+            "relevance": "Provides the Law 14 restart basis for a direct free kick offence committed inside the penalty area."
+          }
+        ],
+        "uncertainties": [
+          "Whether the defender's action was considered careless by the referee"
+        ],
+        "alternate_explanations": [
+          {
+            "if": "The defender's action was reckless or involved excessive force",
+            "then": "The call could have been a yellow card for reckless behavior or a red card for excessive force, but the restart would still be a direct free kick."
+          }
+        ],
+        "confidence": "medium",
+        "_retrieved_chunk_ids": [
+          "p115-01",
+          "p127-01",
+          "p135-01",
+          "p121-01",
+          "p128-01",
+          "p182-01",
+          "p214-01",
+          "p138-01"
+        ]
+      }
+    },
+    {
+      "id": "reckless_tackle_yellow_001",
+      "passed": true,
+      "expected_laws": [
+        "12"
+      ],
+      "actual_laws": [
+        "12"
+      ],
+      "missing_laws": [],
+      "unexpected_laws": [],
+      "uncertainty_ok": true,
+      "confidence": "medium",
+      "answer": {
+        "call_explained": "Yellow card and direct free kick",
+        "why_this_call_may_have_been_made": "The referee may have issued a yellow card for reckless behavior and awarded a direct free kick due to the midfielder's actions being classified as reckless, which requires a caution under Law 12.",
+        "citations": [
+          {
+            "law": "Law 12: Fouls and Misconduct",
+            "page": 115,
+            "section_hint": "Law 12: Fouls and Misconduct > 1. Direct free kick",
+            "source": "https://www.theifab.com/documents/",
+            "relevance": "Reckless behavior is defined as acting with disregard to the danger to an opponent and must be cautioned, supporting the yellow card."
+          },
+          {
+            "law": "Law 12: Fouls and Misconduct",
+            "page": 115,
+            "section_hint": "Law 12: Fouls and Misconduct > 1. Direct free kick",
+            "source": "https://www.theifab.com/documents/",
+            "relevance": "A reckless direct free kick offence is a cautionable offence under unsporting behavior, supporting the yellow card."
+          }
+        ],
+        "uncertainties": [
+          "Whether the tackle was reckless or careless",
+          "Whether the referee applied the advantage rule"
+        ],
+        "alternate_explanations": [
+          {
+            "if": "The tackle was deemed careless rather than reckless",
+            "then": "A yellow card may not have been issued, and the direct free kick would still be awarded, but no caution would be given."
+          },
+          {
+            "if": "The referee applied the advantage rule and allowed play to continue",
+            "then": "The caution and direct free kick may have been delayed until the ball was next out of play."
+          }
+        ],
+        "confidence": "medium",
+        "_retrieved_chunk_ids": [
+          "p115-01",
+          "p122-01",
+          "p127-01",
+          "p121-01",
+          "p120-01",
+          "p150-01",
+          "p180-01",
+          "p128-01"
+        ]
+      }
+    },
+    {
+      "id": "excessive_force_red_001",
+      "passed": true,
+      "expected_laws": [
+        "12"
+      ],
+      "actual_laws": [
+        "12"
+      ],
+      "missing_laws": [],
+      "unexpected_laws": [],
+      "uncertainty_ok": true,
+      "confidence": "medium",
+      "answer": {
+        "call_explained": "Red card for serious foul play",
+        "why_this_call_may_have_been_made": "The player's action of lunging with excessive force into an opponent during a challenge could be classified as using excessive force, which is defined as exceeding the necessary use of force and endangering the safety of an opponent, leading to a red card.",
+        "citations": [
+          {
+            "law": "Law 12: Fouls and Misconduct",
+            "page": 115,
+            "section_hint": "Law 12: Fouls and Misconduct > 1. Direct free kick",
+            "source": "https://www.theifab.com/documents/",
+            "relevance": "The law defines using excessive force as exceeding necessary force and endangering safety, which supports the red card for serious foul play."
+          },
+          {
+            "law": "Law 12: Fouls and Misconduct",
+            "page": 115,
+            "section_hint": "Law 12: Fouls and Misconduct > 1. Direct free kick",
+            "source": "https://www.theifab.com/documents/",
+            "relevance": "Violent conduct is defined as using or attempting to use excessive force or brutality against an opponent, which aligns with the red card for serious foul play."
+          }
+        ],
+        "uncertainties": [
+          "Whether the force used was excessive and endangered the opponent's safety"
+        ],
+        "alternate_explanations": [
+          {
+            "if": "The challenge was for the ball and not against the opponent",
+            "then": "The action could be classified as a reckless challenge, leading to a yellow card instead of a red card."
+          }
+        ],
+        "confidence": "medium",
+        "_retrieved_chunk_ids": [
+          "p115-01",
+          "p124-01",
+          "p125-01",
+          "p111-01",
+          "p120-01",
+          "p150-01",
+          "p118-01",
+          "p127-01"
+        ]
+      }
+    },
+    {
+      "id": "handball_penalty_001",
+      "passed": true,
+      "expected_laws": [
+        "12",
+        "14"
+      ],
+      "actual_laws": [
+        "12",
+        "14"
+      ],
+      "missing_laws": [],
+      "unexpected_laws": [],
+      "uncertainty_ok": true,
+      "confidence": "medium",
+      "answer": {
+        "call_explained": "Penalty kick",
+        "why_this_call_may_have_been_made": "The defender's handling of the ball with an arm that makes their body unnaturally bigger is a handball offence, which may have led to a penalty kick as per Law 12.",
+        "citations": [
+          {
+            "law": "Law 12: Fouls and Misconduct",
+            "page": 116,
+            "section_hint": "Law 12: Fouls and Misconduct > Indirect free kick",
+            "source": "https://www.theifab.com/documents/",
+            "relevance": "The text explains that a player is penalised if their hand/arm makes their body unnaturally bigger, which supports the call."
+          },
+          {
+            "law": "Law 14: The Penalty Kick",
+            "page": 135,
+            "section_hint": "Law 14: The Penalty Kick > 1. Procedure",
+            "source": "https://www.theifab.com/documents/",
+            "relevance": "A penalty kick is awarded if a player commits a direct free kick offence inside their penalty area, which aligns with the handball offence described."
+          }
+        ],
+        "uncertainties": [
+          "Whether the handling was deliberate or accidental",
+          "Whether the ball was in play at the time"
+        ],
+        "alternate_explanations": [
+          {
+            "if": "The handling was accidental and not deliberate",
+            "then": "The call may have been a penalty kick if the handling was deemed to interfere with a promising attack."
+          }
+        ],
+        "confidence": "medium",
+        "_retrieved_chunk_ids": [
+          "p116-01",
+          "p135-01",
+          "p119-01",
+          "p182-01",
+          "p122-01",
+          "p118-01",
+          "p228-01",
+          "p190-01"
+        ]
+      }
+    },
+    {
+      "id": "goalkeeper_backpass_001",
+      "passed": true,
+      "expected_laws": [
+        "12"
+      ],
+      "actual_laws": [
+        "12",
+        "14"
+      ],
+      "missing_laws": [],
+      "unexpected_laws": [
+        "14"
+      ],
+      "uncertainty_ok": true,
+      "confidence": "medium",
+      "answer": {
+        "call_explained": "Indirect free kick",
+        "why_this_call_may_have_been_made": "The goalkeeper picked up the ball with their hands inside the penalty area after it was deliberately kicked to them by a teammate, which is an offence under Law 14.",
+        "citations": [
+          {
+            "law": "Law 14: The Penalty Kick",
+            "page": 135,
+            "section_hint": "Law 14: The Penalty Kick > 1. Procedure",
+            "source": "https://www.theifab.com/documents/",
+            "relevance": "Law 14 states that if the goalkeeper touches the ball with the hand/arm after releasing it and before it has touched another player, an indirect free kick is awarded."
+          },
+          {
+            "law": "Law 14: The Penalty Kick",
+            "page": 135,
+            "section_hint": "Law 14: The Penalty Kick > 1. Procedure",
+            "source": "https://www.theifab.com/documents/",
+            "relevance": "Law 14 specifies that if the goalkeeper touches the ball with the hand/arm after it has been deliberately kicked to them by a team-mate, an indirect free kick is awarded."
+          },
+          {
+            "law": "Law 12: Fouls and Misconduct",
+            "page": 118,
+            "section_hint": "Law 12: Fouls and Misconduct > 2. Indirect free kick",
+            "source": "https://www.theifab.com/documents/",
+            "relevance": "Provides the Law 12 offence basis that must exist before the stated restart or disciplinary explanation applies."
+          }
+        ],
+        "uncertainties": [
+          "Whether the goalkeeper's action clearly impacted the kicker"
+        ],
+        "alternate_explanations": [
+          {
+            "if": "The goalkeeper's action did not impact the kicker",
+            "then": "The call may have been made based on the goalkeeper's deliberate handling of the ball, which is an offence under Law 14."
+          }
+        ],
+        "confidence": "medium",
+        "_retrieved_chunk_ids": [
+          "p135-01",
+          "p182-01",
+          "p138-01",
+          "p139-01",
+          "p118-01",
+          "p133-01",
+          "p137-01",
+          "p191-01"
+        ]
+      }
+    },
+    {
+      "id": "offside_interference_001",
+      "passed": true,
+      "expected_laws": [
+        "11"
+      ],
+      "actual_laws": [
+        "11"
+      ],
+      "missing_laws": [],
+      "unexpected_laws": [],
+      "uncertainty_ok": true,
+      "confidence": "medium",
+      "answer": {
+        "call_explained": "Indirect free kick for offside",
+        "why_this_call_may_have_been_made": "The attacker was in an offside position and interfered with an opponent by challenging for the ball, which is an offside offence.",
+        "citations": [
+          {
+            "law": "Law 11: Offside",
+            "page": 111,
+            "section_hint": "Law 11: Offside > 3. No offence",
+            "source": "https://www.theifab.com/documents/",
+            "relevance": "Defines when a player is in an offside position, which is necessary to determine the offside offence."
+          },
+          {
+            "law": "Law 11: Offside",
+            "page": 111,
+            "section_hint": "Law 11: Offside > 3. No offence",
+            "source": "https://www.theifab.com/documents/",
+            "relevance": "Explains that a player in an offside position is penalised if they interfere with an opponent by challenging for the ball."
+          }
+        ],
+        "uncertainties": [
+          "Whether the attacker interfered with an opponent by challenging for the ball"
+        ],
+        "alternate_explanations": [
+          {
+            "if": "The attacker did not challenge an opponent for the ball",
+            "then": "The offside offence may not have occurred, and the call could be based on another factor."
+          }
+        ],
+        "confidence": "medium",
+        "_retrieved_chunk_ids": [
+          "p115-01",
+          "p237-01",
+          "p234-01",
+          "p235-01",
+          "p111-01",
+          "p231-01",
+          "p233-01",
+          "p109-01"
+        ]
+      }
+    },
+    {
+      "id": "offside_not_active_001",
+      "passed": true,
+      "expected_laws": [
+        "11"
+      ],
+      "actual_laws": [
+        "11"
+      ],
+      "missing_laws": [],
+      "unexpected_laws": [],
+      "uncertainty_ok": true,
+      "confidence": "medium",
+      "answer": {
+        "call_explained": "Play continues",
+        "why_this_call_may_have_been_made": "The attacker was in an offside position but did not interfere with an opponent or touch the ball, so no offside offence occurred, allowing play to continue.",
+        "citations": [
+          {
+            "law": "Law 11: Offside",
+            "page": 109,
+            "section_hint": "Law 11: Offside > 1. Offside position",
+            "source": "https://www.theifab.com/documents/",
+            "relevance": "A player in an offside position is not an offence unless they interfere with play or an opponent."
+          },
+          {
+            "law": "Law 11: Offside",
+            "page": 109,
+            "section_hint": "Law 11: Offside > 1. Offside position",
+            "source": "https://www.theifab.com/documents/",
+            "relevance": "If a player in an offside position does not interfere with play or an opponent, there is no offside offence."
+          }
+        ],
+        "uncertainties": [
+          "Whether the attacker interfered with an opponent or play"
+        ],
+        "alternate_explanations": [
+          {
+            "if": "The attacker interfered with an opponent or play",
+            "then": "The offside offence would be penalised, and play would be restarted with an indirect free kick."
+          }
+        ],
+        "confidence": "medium",
+        "_retrieved_chunk_ids": [
+          "p231-01",
+          "p109-01",
+          "p234-01",
+          "p233-01",
+          "p111-01",
+          "p235-01",
+          "p237-01",
+          "p110-01"
+        ]
+      }
+    },
+    {
+      "id": "dogso_penalty_attempt_ball_001",
+      "passed": true,
+      "expected_laws": [
+        "12",
+        "14"
+      ],
+      "actual_laws": [
+        "12",
+        "14"
+      ],
+      "missing_laws": [],
+      "unexpected_laws": [],
+      "uncertainty_ok": true,
+      "confidence": "medium",
+      "answer": {
+        "call_explained": "Penalty kick and yellow card",
+        "why_this_call_may_have_been_made": "The defender denied an obvious goal-scoring opportunity inside the penalty area, which led to a penalty kick. The yellow card was issued because the defender's action was an attempt to play the ball, which is a cautionable offence under Law 12.",
+        "citations": [
+          {
+            "law": "Law 12: Fouls and Misconduct",
+            "page": 124,
+            "section_hint": "Law 12: Fouls and Misconduct > A player, substitute or substituted player who has been sent off must leave the",
+            "source": "https://www.theifab.com/documents/",
+            "relevance": "This law explains that if a player commits an offence within their own penalty area that denies an opponent an obvious goal-scoring opportunity and the referee awards a penalty kick, the offender is cautioned if the offence was an attempt to play the ball."
+          },
+          {
+            "law": "Law 12: Fouls and Misconduct",
+            "page": 124,
+            "section_hint": "Law 12: Fouls and Misconduct > A player, substitute or substituted player who has been sent off must leave the",
+            "source": "https://www.theifab.com/documents/",
+            "relevance": "This law outlines that denying an obvious goal-scoring opportunity by committing an offence punishable by a free kick is a sending-off offence, but the yellow card may have been issued for unsporting behaviour or reckless challenge."
+          },
+          {
+            "law": "Law 14: The Penalty Kick",
+            "page": 135,
+            "section_hint": "Law 14: The Penalty Kick > 1. Procedure",
+            "source": "https://www.theifab.com/documents/",
+            "relevance": "Provides the Law 14 restart basis for a direct free kick offence committed inside the penalty area."
+          }
+        ],
+        "uncertainties": [
+          "Whether the defender's action was an attempt to play the ball or a reckless challenge"
+        ],
+        "alternate_explanations": [
+          {
+            "if": "The defender's action was a reckless challenge rather than an attempt to play the ball",
+            "then": "The yellow card may have been issued for reckless challenge, which is a cautionable offence under Law 12."
+          }
+        ],
+        "confidence": "medium",
+        "_retrieved_chunk_ids": [
+          "p124-01",
+          "p135-01",
+          "p137-01",
+          "p122-01",
+          "p123-01",
+          "p190-01",
+          "p182-01",
+          "p136-01"
+        ]
+      }
+    },
+    {
+      "id": "insufficient_info_contact_001",
+      "passed": true,
+      "expected_laws": [
+        "12",
+        "14"
+      ],
+      "actual_laws": [
+        "12",
+        "14"
+      ],
+      "missing_laws": [],
+      "unexpected_laws": [],
+      "uncertainty_ok": true,
+      "confidence": "medium",
+      "answer": {
+        "call_explained": "Penalty kick",
+        "why_this_call_may_have_been_made": "A penalty kick may have been awarded because an attacker fell in the penalty area, and the incident occurred inside the penalty area, which is a condition for a penalty kick under Law 14.",
+        "citations": [
+          {
+            "law": "Law 14: The Penalty Kick",
+            "page": 135,
+            "section_hint": "Law 14: The Penalty Kick > 1. Procedure",
+            "source": "https://www.theifab.com/documents/",
+            "relevance": "Law 14 states that a penalty kick is awarded if a player commits a direct free kick offence inside their penalty area."
+          },
+          {
+            "law": "Law 14: The Penalty Kick",
+            "page": 135,
+            "section_hint": "Law 14: The Penalty Kick > 1. Procedure",
+            "source": "https://www.theifab.com/documents/",
+            "relevance": "Law 14 specifies that if an attacker falls inside the penalty area and an offence occurs, a penalty kick may be awarded."
+          },
+          {
+            "law": "Law 12: Fouls and Misconduct",
+            "page": 115,
+            "section_hint": "Law 12: Fouls and Misconduct > 1. Direct free kick",
+            "source": "https://www.theifab.com/documents/",
+            "relevance": "Provides the Law 12 offence basis that must exist before the stated restart or disciplinary explanation applies."
+          }
+        ],
+        "uncertainties": [
+          "Whether any defender made contact with the attacker is unclear, which affects the determination of the offence."
+        ],
+        "alternate_explanations": [
+          {
+            "if": "The clip does not show whether any defender made contact",
+            "then": "The call could have been based on the attacker falling inside the penalty area without any contact, which may not constitute an offence requiring a penalty kick."
+          }
+        ],
+        "confidence": "medium",
+        "_retrieved_chunk_ids": [
+          "p135-01",
+          "p115-01",
+          "p190-01",
+          "p121-01",
+          "p182-01",
+          "p138-01",
+          "p137-01",
+          "p127-01"
+        ]
+      }
+    }
+  ],
+  "saved_to": "/Users/ompatnaik/Documents/Code/football-rule-cite/eval/runs/qwen3-latest.json"
+}
