@@ -24,3 +24,13 @@ results to GitHub.
 - No new inference was run. Historical model digests and environment/source
   hashes are unavailable; documentation records this reproducibility limitation.
 - Next action: check the diff, verify public copies, commit and push via SSH.
+
+## End checkpoint
+
+- Verified: `git diff --check` passed; SHA-256 hashes of both public report copies
+  match the original local artifacts.
+- Completed: committed documentation and outputs as `3ec4f6b` and pushed main
+  to `git@github.com:OmTheLast/DECISIONCITATION.git` successfully.
+- No unfinished implementation, blockers or running jobs.
+- Next optional action: design evaluation for grounded reasoning and exact
+  citation accuracy; no such new experiment has been run or authorized here.
